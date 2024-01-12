@@ -110,9 +110,12 @@ class _NewExpenseState extends State<NewExpense> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(_selectedDate == null
-                        ? "No date selected"
-                        : formatter.format(_selectedDate!)),
+                    Text(
+                      _selectedDate == null
+                          ? "No date selected"
+                          : formatter.format(_selectedDate!),
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                     IconButton(
                       onPressed: _presentDatePicker,
                       icon: const Icon(Icons.calendar_month),
@@ -132,8 +135,8 @@ class _NewExpenseState extends State<NewExpense> {
                       (category) => DropdownMenuItem(
                         value: category,
                         child: Text(
-                          category.name.toUpperCase(),
-                        ),
+                            style: Theme.of(context).textTheme.titleLarge,
+                            category.name.toUpperCase()),
                       ),
                     )
                     .toList(),
@@ -153,7 +156,9 @@ class _NewExpenseState extends State<NewExpense> {
               ),
               ElevatedButton(
                 onPressed: _submitExpenseData,
-                child: const Text('Save Expense'),
+                child: const Text(
+                  'Save Expense',
+                ),
               ),
             ],
           ),
